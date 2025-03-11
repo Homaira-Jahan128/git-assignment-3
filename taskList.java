@@ -11,26 +11,41 @@ class TaskManager {
 
     public static void main(String[] args) {
         while (true) {
-            System.out.println("1: Add 2: Remove 3: Show 4: Exit");
-            int choice = scanner.nextInt();
-
+            int choice = getUserChoice();
             if (choice == ADD_ITEM) {
-                System.out.print("N: ");
-                scanner.nextLine();
-                taskList.add(scanner.nextLine());
+                addItem();
             } else if (choice == REMOVE_ITEM) {
-                System.out.print("I: ");
-                int index = scanner.nextInt();
-                if (index >= 0 && index < taskList.size()) {
-                    taskList.remove(index);
-                }
+                removeItem();
             } else if (choice == SHOW_ITEMS) {
-                for (int position = 0; position < taskList.size(); position++) {
-                    System.out.println(position + ": " + taskList.get(position));
-                }
+                showItems();
             } else if (choice == EXIT) {
                 break;
             }
         }
     }
+
+    private static int getUserChoice() {
+        System.out.println("1: Add 2: Remove 3: Show 4: Exit");
+        return scanner.nextInt();
+    }
+
+    private static void addItem() {
+        System.out.print("N: ");
+        scanner.nextLine();
+        taskList.add(scanner.nextLine());
+    }
+
+    private static void removeItem() {
+        System.out.print("I: ");
+        int index = scanner.nextInt();
+        if (index >= 0 && index < taskList.size()) {
+            taskList.remove(index);
+        }
+    }
+
+    private static void showItems() {
+        for (int position = 0; position < taskList.size(); position++) {
+            System.out.println(position + ": " + taskList.get(position));
+        }
+    }g
 }
