@@ -36,12 +36,13 @@ class TaskManager {
             System.out.println("Invalid input. Please enter a number.");
             scanner.next(); // Clear invalid input
         }
-        return scanner.nextInt();
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline left-over
+        return choice;
     }
 
     private static void addItem() {
         System.out.print("N: ");
-        scanner.nextLine();
         taskList.add(scanner.nextLine());
     }
 
@@ -52,6 +53,7 @@ class TaskManager {
             scanner.next(); // Clear invalid input
         }
         int index = scanner.nextInt();
+        scanner.nextLine(); // Consume newline left-over
         if (index >= 0 && index < taskList.size()) {
             taskList.remove(index);
         } else {
@@ -60,8 +62,10 @@ class TaskManager {
     }
 
     private static void showItems() {
-        for (int position = 0; position < taskList.size(); position++) {
-            System.out.println(position + ": " + taskList.get(position));
+        int taskIndex = 0;
+        for (String task : taskList) {
+            System.out.println(taskIndex + ": " + task);
+            taskIndex++;
         }
     }
 }
