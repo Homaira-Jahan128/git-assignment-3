@@ -21,6 +21,8 @@ class TaskManager {
                     showItems();
                 } else if (choice == EXIT) {
                     break;
+                } else {
+                    System.out.println("Invalid choice. Please try again.");
                 }
             }
         } finally {
@@ -30,6 +32,10 @@ class TaskManager {
 
     private static int getUserChoice() {
         System.out.println("1: Add 2: Remove 3: Show 4: Exit");
+        while (!scanner.hasNextInt()) {
+            System.out.println("Invalid input. Please enter a number.");
+            scanner.next(); // Clear invalid input
+        }
         return scanner.nextInt();
     }
 
@@ -41,9 +47,15 @@ class TaskManager {
 
     private static void removeItem() {
         System.out.print("I: ");
+        while (!scanner.hasNextInt()) {
+            System.out.println("Invalid input. Please enter a number.");
+            scanner.next(); // Clear invalid input
+        }
         int index = scanner.nextInt();
         if (index >= 0 && index < taskList.size()) {
             taskList.remove(index);
+        } else {
+            System.out.println("Invalid index. Please try again.");
         }
     }
 
