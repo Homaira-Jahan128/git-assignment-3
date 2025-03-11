@@ -1,23 +1,23 @@
 import java.util.*;
-class M {
-static Scanner s = new Scanner(System.in);
+class taskList {
+static Scanner scanner = new Scanner(System.in);
 static List<String> l = new ArrayList<>();
-public static void main(String[] a){
+public static void main(String[] args){
   while(true){
 System.out.println("1: Add 2: Remove 3: Show 4: Exit");
-int c = s.nextInt();
- if(c==1){
+int choice = scanner.nextInt();
+ if(choice==1){
  System.out.print("N: ");
- s.nextLine();
-   l.add(s.nextLine());
+ scanner.nextLine();
+   l.add(scanner.nextLine());
    }
-else if(c==2){
+else if(choice==2){
 System.out.print("I: ");
-int i = s.nextInt();
-   if(i>=0&&i<l.size())l.remove(i);
+int index = scanner.nextInt();
+   if(index >=0&&index<l.size())l.remove(index);
  }
- else if(c==3){
-for(int j=0;j<l.size();j++)
- {System.out.println(j+": "+l.get(j));}
+ else if(choice==3){
+for(int position=0;position<l.size();position++)
+ {System.out.println(position+": "+l.get(position));}
 }
-  else if(c==4)break;}}}
+  else if(choice==4)break;}}}
