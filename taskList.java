@@ -12,16 +12,19 @@ class taskList {
                 System.out.print("N: ");
                 scanner.nextLine();
                 l.add(scanner.nextLine());
-            } else if (choice == 2) {
+            }
+            else if (choice == 2) {
                 System.out.print("I: ");
                 int index = scanner.nextInt();
                 if (index >= 0 && index < l.size())
                     l.remove(index);
-            } else if (choice == 3) {
+            }
+            else if (choice == 3) {
                 for (int position = 0; position < l.size(); position++) {
                     System.out.println(position + ": " + l.get(position));
                 }
-            } else if (choice == 4)
+            }
+            else if (choice == 4)
                 break;
         }
     }
