@@ -10,17 +10,21 @@ class TaskManager {
     private static final int EXIT = 4;
 
     public static void main(String[] args) {
-        while (true) {
-            int choice = getUserChoice();
-            if (choice == ADD_ITEM) {
-                addItem();
-            } else if (choice == REMOVE_ITEM) {
-                removeItem();
-            } else if (choice == SHOW_ITEMS) {
-                showItems();
-            } else if (choice == EXIT) {
-                break;
+        try {
+            while (true) {
+                int choice = getUserChoice();
+                if (choice == ADD_ITEM) {
+                    addItem();
+                } else if (choice == REMOVE_ITEM) {
+                    removeItem();
+                } else if (choice == SHOW_ITEMS) {
+                    showItems();
+                } else if (choice == EXIT) {
+                    break;
+                }
             }
+        } finally {
+            scanner.close();
         }
     }
 
@@ -47,5 +51,5 @@ class TaskManager {
         for (int position = 0; position < taskList.size(); position++) {
             System.out.println(position + ": " + taskList.get(position));
         }
-    }g
+    }
 }
